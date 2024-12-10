@@ -1,0 +1,41 @@
+{
+  "subjects": [
+    {
+      "id": "1",
+      "name": "Economia 1",
+      "quarter": 1,
+      "teacher": "André Magalhães",
+      "horary": [
+        "Terça-feira"
+      ],
+      "local": "Departamento de economia",
+      "summary": "Lorem ipsum",
+      "state": "Done"
+    },
+    {
+      "id": "2",
+      "name": "Economia 12",
+      "quarter": 2,
+      "teacher": "André Magalhães",
+      "horary": [
+        "Terça-feira"
+      ],
+      "local": "Departamento de economia",
+      "summary": "Lorem ipsum 2",
+      "state": "Studying"
+    },
+    {
+      "id": "0a76",
+      "name": "Matemática 1",
+      "quarter": 1,
+      "teacher": "Edilberto Almeida",
+      "horary": [
+        "Sexta-feira",
+        "Quarta-feira"
+      ],
+      "local": "Departamento de economia",
+      "summary": "Cadeira de Cálculo",
+      "state": "Studying"
+    }
+  ]
+}
