@@ -2,7 +2,8 @@
   "version": "4",
   "specifiers": {
     "npm:@vitejs/plugin-vue@^5.2.1": "5.2.1_vite@6.0.3_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
-    "npm:@vue/test-utils@^2.4.6": "2.4.6",
+    "npm:@vue/test-utils@^2.4.0-alpha.2": "2.4.6",
+    "npm:happy-dom@^15.11.7": "15.11.7",
     "npm:json-server@^1.0.0-beta.3": "1.0.0-beta.3",
     "npm:swapy@~0.4.2": "0.4.2",
     "npm:typescript@~5.6.2": "5.6.3",
@@ -809,6 +810,14 @@
         "path-scurry"
       ]
     },
+    "happy-dom@15.11.7": {
+      "integrity": "sha512-KyrFvnl+J9US63TEzwoiJOQzZBJY7KgBushJA8X61DMbNsH+2ONkDuLDnCnwUiPTF42tLoEmrPyoqbenVA5zrg==",
+      "dependencies": [
+        "entities",
+        "webidl-conversions",
+        "whatwg-mimetype"
+      ]
+    },
     "he@1.2.0": {
       "integrity": "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="
     },
@@ -1219,6 +1228,12 @@
         "typescript"
       ]
     },
+    "webidl-conversions@7.0.0": {
+      "integrity": "sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g=="
+    },
+    "whatwg-mimetype@3.0.0": {
+      "integrity": "sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q=="
+    },
     "which@2.0.2": {
       "integrity": "sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==",
       "dependencies": [
@@ -1253,7 +1268,8 @@
     "packageJson": {
       "dependencies": [
         "npm:@vitejs/plugin-vue@^5.2.1",
-        "npm:@vue/test-utils@^2.4.6",
+        "npm:@vue/test-utils@^2.4.0-alpha.2",
+        "npm:happy-dom@^15.11.7",
         "npm:json-server@^1.0.0-beta.3",
         "npm:swapy@~0.4.2",
         "npm:typescript@~5.6.2",

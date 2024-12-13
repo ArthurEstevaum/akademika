@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { reactive } from 'vue';
+import { days } from './types/subject';
 import HelloWorld from './components/HelloWorld.vue'
+import HoraryInput from './components/HoraryInput.vue';
+
+const form: { text: string, horary: Array<days> } = reactive({
+  text: '',
+  horary: []
+})
+
 </script>
 
 <template>
@@ -12,6 +21,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <HoraryInput @updated-days-picked="(horaryList: Array<days>) => form.horary = horaryList" />
 </template>
 
 <style scoped>
@@ -26,5 +36,16 @@ import HelloWorld from './components/HelloWorld.vue'
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+.v-move,
+.v-enter-active,
+.v-leave-active {
+  transition: 0.8s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
 }
 </style>

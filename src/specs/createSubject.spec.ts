@@ -1,13 +1,13 @@
-import { describe, it } from "vitest"
+/**
+ * @vitest-environment happy-dom
+ */
+
+import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
-import createSubject from "../CreateSubject.vue"
+import CreateSubject from "../CreateSubject.vue";
 
 describe("Creating a subject", () => {
-    it("renders subject creation form", () => {
-        const wrapper = mount(createSubject);
-        const endpoint = "http://localhost:3000/subjects"
-
-        
-    })
-})
-
+  it.todo("Should render subject creation form");
+  it.todo("Should render success message and reset fields on success");
+  it.todo("Should render error message when leaving required fields empty");
+});

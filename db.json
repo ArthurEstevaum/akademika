@@ -8,8 +8,8 @@
       "horary": [
         "Terça-feira"
       ],
-      "local": "Departamento de economia",
-      "summary": "Lorem ipsum",
+      "location": "Departamento de economia",
+      "syllabus": "Lorem ipsum",
       "state": "Done"
     },
     {
@@ -20,8 +20,8 @@
       "horary": [
         "Terça-feira"
       ],
-      "local": "Departamento de economia",
-      "summary": "Lorem ipsum 2",
+      "location": "Departamento de economia",
+      "syllabus": "Lorem ipsum 2",
       "state": "Studying"
     },
     {
@@ -33,9 +33,70 @@
         "Sexta-feira",
         "Quarta-feira"
       ],
-      "local": "Departamento de economia",
-      "summary": "Cadeira de Cálculo",
+      "location": "Departamento de economia",
+      "syllabus": "Cadeira de Cálculo",
       "state": "Studying"
+    },
+    {
+      "id": "9028",
+      "name": "Econometria",
+      "quarter": 3,
+      "teacher": "Edilberto Almeida",
+      "horary": [
+        "Sexta-feira",
+        "Quarta-feira"
+      ],
+      "local": "Departamento de economia",
+      "summary": "Cadeira de econometria",
+      "state": "Não iniciado"
+    },
+    {
+      "id": "b378",
+      "name": "Introdução à estatística",
+      "quarter": 2,
+      "state": "cursando",
+      "horary": [
+        "Quarta-feira"
+      ],
+      "location": "Sala A5",
+      "syllabus": "Introdução à estatística",
+      "teacher": "Não Lembro"
+    },
+    {
+      "id": "5faa",
+      "name": "Introdução à estatística",
+      "quarter": 2,
+      "state": "cursando",
+      "horary": [
+        "Quarta-feira"
+      ],
+      "location": "Sala A5",
+      "syllabus": "Introdução à estatística",
+      "teacher": "Não Lembro"
+    },
+    {
+      "id": "56b1",
+      "name": "Introdução à estatística",
+      "quarter": 2,
+      "state": "cursando",
+      "horary": [
+        "Quarta-feira"
+      ],
+      "location": "Sala A5",
+      "syllabus": "Introdução à estatística",
+      "teacher": "Não Lembro"
+    },
+    {
+      "id": "5eb9",
+      "name": "Introdução à estatística",
+      "quarter": 2,
+      "state": "cursando",
+      "horary": [
+        "Quarta-feira"
+      ],
+      "location": "Sala A5",
+      "syllabus": "Introdução à estatística",
+      "teacher": "Não Lembro"
     }
   ]
 }
