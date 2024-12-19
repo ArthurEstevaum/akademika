@@ -2,7 +2,8 @@
 import { reactive } from 'vue';
 import { days } from './types/subject';
 import HelloWorld from './components/HelloWorld.vue'
-import HoraryInput from './components/HoraryInput.vue';
+import HoraryInput from './components/horaryInput/HoraryInput.vue';
+import TextInput from './components/textInput/TextInput.vue';
 
 const form: { text: string, horary: Array<days> } = reactive({
   text: '',
@@ -22,6 +23,7 @@ const form: { text: string, horary: Array<days> } = reactive({
   </div>
   <HelloWorld msg="Vite + Vue" />
   <HoraryInput @updated-days-picked="(horaryList: Array<days>) => form.horary = horaryList" />
+  <TextInput v-model="form.text" input-id="textInput" label-text="Teste de input" placeholder="Digite aqui"  />
 </template>
 
 <style scoped>

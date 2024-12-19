@@ -4,7 +4,6 @@
 
 import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
-import CreateSubject from "../CreateSubject.vue";
 
 describe("Creating a subject", () => {
   it.todo("Should render subject creation form");
