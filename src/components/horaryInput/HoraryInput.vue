@@ -36,6 +36,7 @@ import { days } from '../../types/subject';
         <div :class="styles.days['Sexta-feira']" name="Sexta-feira" id="sexta-feira" @click="togglePickedDay('Sexta-feira')">Sexta-feira</div>
         <div :class="styles.days['Sábado']" name="Sábado" id="sabado" @click="togglePickedDay('Sábado')">Sábado</div>
     </section>
+
 </template>
    
 <style scoped>
@@ -55,6 +56,11 @@ import { days } from '../../types/subject';
         border-radius: 20px;
         overflow: hidden;
     }
+
+    .error {
+        border: 1px solid red;
+    }
+
     div:last-child {
         border-right: none;
     }

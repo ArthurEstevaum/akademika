@@ -4,12 +4,20 @@ import { days } from './types/subject';
 import HelloWorld from './components/HelloWorld.vue'
 import HoraryInput from './components/horaryInput/HoraryInput.vue';
 import TextInput from './components/textInput/TextInput.vue';
+import useFormValidation from './composables/useFormValidation';
 
 const form: { text: string, horary: Array<days> } = reactive({
   text: '',
   horary: []
 })
-
+type formValidationType = {
+  validateField: Function,
+  errors: typeof form
+}
+const { validateField, errors } : formValidationType = useFormValidation({
+  text: (value: string) => value.length !== 0? true : "Campo Obrigatório",
+  horary: (value: days[]) => value.length !== 0? true : "Campo obrigatório"
+})
 </script>
 
 <template>
@@ -22,8 +30,14 @@ const form: { text: string, horary: Array<days> } = reactive({
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
-  <HoraryInput @updated-days-picked="(horaryList: Array<days>) => form.horary = horaryList" />
-  <TextInput v-model="form.text" input-id="textInput" label-text="Teste de input" placeholder="Digite aqui"  />
+  <HoraryInput error="" @updated-days-picked="(horaryList: Array<days>) => {
+    form.horary = horaryList
+    validateField('horary', horaryList)
+    }" />
+    <p v-if="errors.horary">{{ errors.horary }}</p>
+  <TextInput @input="validateField('text', $event.target.value)" v-model="form.text" input-id="textInput" label-text="Teste de input" placeholder="Digite aqui" />
+  <p v-if="errors.text">{{ errors.text }}</p>
+  <button>Enviar formulário</button>
 </template>
 
 <style scoped>
