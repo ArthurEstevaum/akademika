@@ -1,4 +1,4 @@
-import { Subject } from "../types/subject";
+import { Subject } from "../types/subject.ts";
 
 export default async function CreateSubjectRequest(subject: Subject) {
   const endpoint = "http://localhost:3000/subjects";
