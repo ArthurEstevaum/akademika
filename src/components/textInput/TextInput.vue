@@ -18,6 +18,7 @@
 
 <style scoped>
 
+
 label {
     font-size: 1.5rem;
     display: block;
@@ -26,10 +27,17 @@ label {
 input {
     width: 100%;
     padding: 16px 20px;
-    margin: 8px;
+    margin: 16px 0;
+    font-size: 1.1rem;
     box-sizing: border-box;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 15px;
+    background-color: #121212;
+    box-shadow: 0 12px 18px -1px rgba(0, 0, 0, 0.185), 0 6px 12px -2px rgba(0, 0, 0, 0.158);
+}
+
+input:focus {
+    outline: 3px solid var(--blue);
+    border-color: rgba(0, 0, 255, 0);
 }
 
 input::placeholder {
@@ -39,5 +47,11 @@ input::placeholder {
 div {
     margin-top: 24px;
     text-align: left;
+}
+
+@media (prefers-color-scheme: light) {
+    input {
+        background-color: var(--off-white);
+    }
 }
 </style>

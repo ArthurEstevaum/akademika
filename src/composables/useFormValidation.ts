@@ -1,5 +1,5 @@
 import { Reactive, reactive } from "vue";
-import { formValidationRules } from "../types/formValidationRules";
+import { formValidationRules } from "../types/formValidationRules.ts";
 
 /**
  * @param validationRules should be an object of N number of functions

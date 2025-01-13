@@ -4,40 +4,47 @@ import { days } from './types/subject';
 import HelloWorld from './components/HelloWorld.vue'
 import HoraryInput from './components/horaryInput/HoraryInput.vue';
 import TextInput from './components/textInput/TextInput.vue';
+import RadioInput from './components/RadioInput/RadioInput.vue'
 import useFormValidation from './composables/useFormValidation';
+import PrimaryButton from './components/PrimaryButton/PrimaryButton.vue';
 
-const form: { text: string, horary: Array<days> } = reactive({
+const form: { text: string, horary: Array<days>, state: "cursando" | "aprovado" | "não iniciado"} = reactive({
   text: '',
-  horary: []
+  horary: [],
+  state: "não iniciado"
 })
 type formValidationType = {
   validateField: Function,
-  errors: typeof form
+  errors: {
+    text: string,
+    horary: string,
+    state: string,
+  },
 }
 const { validateField, errors } : formValidationType = useFormValidation({
   text: (value: string) => value.length !== 0? true : "Campo Obrigatório",
-  horary: (value: days[]) => value.length !== 0? true : "Campo obrigatório"
+  horary: (value: days[]) => value.length !== 0? true : "Campo obrigatório",
 })
 </script>
 
 <template>
   <div>
     <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+      <img src="./assets/logo.svg" class="logo" alt="akademika logo" />
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
-  <HoraryInput error="" @updated-days-picked="(horaryList: Array<days>) => {
+  <HoraryInput :error="errors.horary" @updated-days-picked="(horaryList: Array<days>) => {
     form.horary = horaryList
     validateField('horary', horaryList)
     }" />
-    <p v-if="errors.horary">{{ errors.horary }}</p>
+  <p v-if="errors.horary" :style="{ color: errors.horary? 'red' : 'inherit' }">{{ errors.horary }}</p>
   <TextInput @input="validateField('text', $event.target.value)" v-model="form.text" input-id="textInput" label-text="Teste de input" placeholder="Digite aqui" />
   <p v-if="errors.text">{{ errors.text }}</p>
-  <button>Enviar formulário</button>
+  <RadioInput label-text="cursando" radio-id="cursando" v-model="form.state" />
+  <RadioInput label-text="aprovado" radio-id="aprovado" v-model="form.state" />
+  <RadioInput label-text="não iniciado" radio-id="não iniciado" v-model="form.state" />
+  <PrimaryButton text="Enviar Formulário" @click="console.log(form)" />
 </template>
 
 <style scoped>
