@@ -39,8 +39,8 @@ const { validateField, errors } : formValidationType = useFormValidation({
     validateField('horary', horaryList)
     }" />
   <p v-if="errors.horary" :style="{ color: errors.horary? 'red' : 'inherit' }">{{ errors.horary }}</p>
-  <TextInput @input="validateField('text', $event.target.value)" v-model="form.text" input-id="textInput" label-text="Teste de input" placeholder="Digite aqui" />
-  <p v-if="errors.text">{{ errors.text }}</p>
+  <TextInput :error="errors.text" @input="validateField('text', $event.target.value)" v-model="form.text" input-id="textInput" label-text="Teste de input" placeholder="Digite aqui" />
+  <p v-if="errors.text" :style="{ color: errors.horary? 'red' : 'inherit' }">{{ errors.text }}</p>
   <RadioInput label-text="cursando" radio-id="cursando" v-model="form.state" />
   <RadioInput label-text="aprovado" radio-id="aprovado" v-model="form.state" />
   <RadioInput label-text="não iniciado" radio-id="não iniciado" v-model="form.state" />

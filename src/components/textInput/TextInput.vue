@@ -3,16 +3,17 @@
     defineOptions({
         inheritAttrs: false
     })
-    defineProps<{
+    const props = defineProps<{
         inputId: string,
         labelText: string,
+        error?: string,
     }>()
 </script>
 
 <template>
     <div>
         <label :for="inputId">{{ labelText }}</label>
-        <input v-bind="$attrs" v-model="model" type="text" :id="inputId">
+        <input :class="{ errorRing: props.error }" v-bind="$attrs" v-model="model" type="text" :id="inputId">
     </div>
 </template>
 
@@ -42,6 +43,10 @@ input:focus {
 
 input::placeholder {
     font-size: 1.2rem;
+}
+
+input.errorRing {
+    outline: 3px solid rgba(255, 0, 0, 0.575);
 }
 
 div {
