@@ -11,7 +11,7 @@ import PrimaryButton from './components/PrimaryButton/PrimaryButton.vue';
 const form: { text: string, horary: Array<days>, state: "cursando" | "aprovado" | "não iniciado"} = reactive({
   text: '',
   horary: [],
-  state: "não iniciado"
+  state: "cursando"
 })
 type formValidationType = {
   validateField: Function,
@@ -41,9 +41,11 @@ const { validateField, errors } : formValidationType = useFormValidation({
   <p v-if="errors.horary" :style="{ color: errors.horary? 'red' : 'inherit' }">{{ errors.horary }}</p>
   <TextInput :error="errors.text" @input="validateField('text', $event.target.value)" v-model="form.text" input-id="textInput" label-text="Teste de input" placeholder="Digite aqui" />
   <p v-if="errors.text" :style="{ color: errors.text? 'red' : 'inherit' }">{{ errors.text }}</p>
-  <RadioInput label-text="cursando" radio-id="cursando" v-model="form.state" checked />
-  <RadioInput label-text="aprovado" radio-id="aprovado" v-model="form.state" />
-  <RadioInput label-text="não iniciado" radio-id="não iniciado" v-model="form.state" />
+  <div class="flex">
+    <RadioInput label-text="cursando" radio-id="cursando" v-model="form.state" />
+    <RadioInput label-text="aprovado" radio-id="aprovado" v-model="form.state" />
+    <RadioInput label-text="não iniciado" radio-id="não iniciado" v-model="form.state" />
+  </div>
   <PrimaryButton text="Enviar Formulário" @click="console.log(form)" />
 </template>
 
@@ -54,6 +56,7 @@ const { validateField, errors } : formValidationType = useFormValidation({
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }

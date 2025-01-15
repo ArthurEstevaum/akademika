@@ -1,8 +1,10 @@
 <script setup lang="ts">
     const model = defineModel({ required: true })
-    defineOptions({
-        inheritAttrs: false
-    })
+
+    
+
+
+    
     const props = defineProps<{
         inputId: string,
         labelText: string,
