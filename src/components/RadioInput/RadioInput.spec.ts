@@ -27,7 +27,7 @@ describe("Radio input component", () => {
   it("Should be able to receive label and id props", () => {
     const parent = {
       template:
-        `<RadioInput v-model="inputValue" labelText="Testing model" radioId="TestInput" />`,
+        `<RadioInput v-model="picked" labelText="Testing model" radioId="TestInput" />`,
       components: { RadioInput },
       data() {
         return { picked: "" };
