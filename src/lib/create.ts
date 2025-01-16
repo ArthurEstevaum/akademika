@@ -13,16 +13,13 @@ const vueComponentTemplate = `<script setup lang="ts">
 <style scoped>
 </style>
 `;
-
+const acceptedFileTypes = ["component", "view", "service", "composable"];
 const fileType = prompt(
-  "Qual o tipo do arquivo? [component, service, composable] ",
+  `Qual o tipo do arquivo? [${acceptedFileTypes.join(",")}]`,
 );
-if (
-  fileType !== "component" && fileType !== "composable" &&
-  fileType !== "service"
-) {
+if (!acceptedFileTypes.includes(fileType ?? "")) {
   console.log(
-    "Tipo de arquivo inválido! Deve ser: [component, service ou composable]",
+    `Tipo de arquivo inválido! Deve ser: [${acceptedFileTypes.join(",")}]`,
   );
   Deno.exit(1);
 }
@@ -39,7 +36,7 @@ const componentTestTemplate = `/**
 
 import { describe, it } from "vitest";
 
-describe("${fileName} component", () => {
+describe("${fileName} ${fileType}", () => {
     it.todo("stuff")
 })
 `;
@@ -55,7 +52,7 @@ try {
   const filesDir = `src/${fileType}s/${fileName}`;
   await Deno.mkdir(filesDir);
   console.log(`✔️ Diretório ${filesDir} criado`);
-  if (fileType === "component") {
+  if (fileType === "component" || fileType === "view") {
     await Deno.writeTextFile(
       `${filesDir}/${fileName}.vue`,
       vueComponentTemplate,
@@ -76,7 +73,9 @@ try {
     console.log(`✔️ Arquivo ${fileName}.spec.ts criado`);
   }
 
-  console.log(`✅ ${capitalizeFirstLetter(fileType)} criado com sucesso!`);
+  console.log(
+    `✅ ${capitalizeFirstLetter(fileType ?? "")} criado com sucesso!`,
+  );
 } catch (error) {
   console.log("Error creating directory", (error as Error).message);
   Deno.exit(1);
