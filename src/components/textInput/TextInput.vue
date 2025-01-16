@@ -33,7 +33,7 @@ input {
     margin: 16px 0;
     font-size: 1.1rem;
     box-sizing: border-box;
-    border-radius: 15px;
+    border-radius: 16px;
     background-color: #121212;
     box-shadow: 0 12px 18px -1px rgba(0, 0, 0, 0.185), 0 6px 12px -2px rgba(0, 0, 0, 0.158);
 }
