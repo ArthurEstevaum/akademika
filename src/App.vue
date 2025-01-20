@@ -6,7 +6,6 @@ import Navbar from './components/Navbar/Navbar.vue';
   <Navbar />
   <RouterView />
 </template>
-
 <style scoped>
 .v-move,
 .v-enter-active,
