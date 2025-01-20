@@ -11,8 +11,10 @@ const dropMenu = ref(false)
             <div class="separator">
                 <img src="../../assets/logo.svg" alt="Akademika logo" class="logo">
                 <section class="link-group" :class="{ 'active': dropMenu }">
-                    <RouterLink to="/">Início</RouterLink>
-                    <RouterLink to="/subject/create">Disciplinas</RouterLink>
+                    <span class="link-wrapper" @click="dropMenu = !dropMenu">
+                        <RouterLink id="first-link" to="/">Início</RouterLink>
+                        <RouterLink to="/subject/create">Disciplinas</RouterLink>
+                    </span>
                 </section>
                 <section class="hamburger-section">
                     <button @click="() => dropMenu = !dropMenu">
@@ -26,16 +28,25 @@ const dropMenu = ref(false)
 </template>
 
 <style scoped>
+    header {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        background-color: var(--background-black);
+    }
     .link-group {
         min-width: calc(180px + 15vw);
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
         font-size: calc(0.8rem + 0.3vw);
     }
     .separator {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    .link-wrapper {
+        display: flex;
+        justify-content: space-evenly;
         align-items: center;
     }
 
@@ -53,6 +64,7 @@ const dropMenu = ref(false)
 
 .hamburger-section {
     display: none;
+    margin-bottom: 5px;
 }
 
 button {
@@ -75,11 +87,6 @@ a {
     100% { transform: translatex(0); }
 }
 
-@keyframes unslide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(100%); }
-}
-
 @media (prefers-color-scheme: light) {
     a {
         color: var(--black);
@@ -87,6 +94,10 @@ a {
 
     .icon {
         filter: none;
+    }
+
+    nav {
+        background-color: var(--background-gray);
     }
 }
 
@@ -100,13 +111,14 @@ a {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
         position: fixed;
         top: 0;
-        left: 0;
+        right: 0;
         z-index: 100;
+        height: 100%;
         width: 100%;
-        height: 100vh;
+        margin-top: 96px;
         background-color: black;
     }
 
@@ -114,9 +126,20 @@ a {
         z-index: 101;
     }
 
-    .link-group.active > a {
+    .link-wrapper > a {
         margin-bottom: 12px;
         padding: 12px;
+    }
+
+    #first-link {
+        margin-top: 15vh;
+    }
+
+    .link-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
     }
 
     .hamburger-section {
