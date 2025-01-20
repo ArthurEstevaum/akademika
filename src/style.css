@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face {
+  font-family: Kenao;
+  src: url("./assets/Kenao.otf");
+}
 
 :root {
   --blue: #7198b5;
@@ -20,6 +24,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth !important;
 }
 
 *,
@@ -78,7 +86,7 @@ button:focus-visible {
 #app {
   max-width: 1920px;
   margin: 0 auto;
-  padding: 1rem 0.2rem;
+  padding: 1rem 0rem;
   text-align: center;
 }
 
